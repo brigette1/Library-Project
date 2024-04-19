@@ -1,17 +1,18 @@
 const myLibrary = [];
-let addBook= document.getElementById('add');
-let bookTitle = document.getElementById('title');
-let bookAuthor = document.getElementById('author'); 
-let bookPages = document.getElementById('pages'); 
-let bookRead = document.getElementById('read'); 
+const addBook= document.getElementById('add');
+const bookTitle = document.getElementById('title');
+const bookAuthor = document.getElementById('author'); 
+const bookPages = document.getElementById('pages'); 
+const bookRead = document.getElementById('read'); 
 
 
-
-function Book (title, author, pages, read) {
-    this.title = title; 
-    this.author = author;
-    this.pages = pages; 
-    this.read = read;
+class Book {
+    constructor (title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 // const theHobbit = new Book ('The Hobbit', 'by JRR Tolkien', '295 pages', 'not read yet');
@@ -39,7 +40,7 @@ addBook.addEventListener('click', function() {
     updateTable();
 });
 
-read.addEventListener('keypress', function(event) {
+bookRead.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
         addBook.click();
